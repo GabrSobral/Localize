@@ -1,4 +1,5 @@
-import { Text, View } from "react-native";
+import { useNavigation } from "expo-router";
+import { Pressable, Text, View } from "react-native";
 import { SvgXml } from "react-native-svg";
 
 const localizationIcon = `<svg width="27" height="32" viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,11 +14,16 @@ const localizationIcon = `<svg width="27" height="32" viewBox="0 0 27 32" fill="
 `;
 
 export function Header() {
+  const { goBack } = useNavigation();
+
   return (
-    <View className="px-4 py-2 flex-row justify-between h-[50px] w-full">
+    <View className="px-8 py-2 flex-row justify-between w-full">
       <View className="flex-row gap-x-3">
+        <Pressable onPress={goBack}>
         <SvgXml xml={localizationIcon} />
-        <Text className="font-bold text-[23px]">Santos</Text>
+
+        </Pressable>
+        <Text className="font-bold text-[23px]">Mapa</Text>
       </View>
     </View>
   );

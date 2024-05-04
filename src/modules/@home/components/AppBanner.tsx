@@ -59,7 +59,7 @@ const bannerFoods = `<svg width="103" height="103" viewBox="0 0 103 103" fill="n
 
 export function AppBanner() {
   return (
-    <View className="w-full rounded-lg bg-primary p-4 flex-row">
+    <View className="w-full rounded-lg bg-primary p-4 flex-row mt-4">
       <View>
         <Text
           style={font.montserratSemibold}
