@@ -4,6 +4,8 @@ export default function SignInScreen() {
     return (
         <View>
             <Text>Faz aqui Xulia</Text>
+
+            <Text>alsdkjalksdjalksjdlask</Text>
         </View>
     )
 }
