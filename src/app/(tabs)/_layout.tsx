@@ -1,6 +1,5 @@
-import React from "react";
 import { Tabs } from "expo-router";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import Feather from "@expo/vector-icons/Feather";
 
 export default function TabLayout() {
   return (
@@ -9,7 +8,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "white",
         tabBarActiveBackgroundColor: "",
-        tabBarStyle: { backgroundColor: "#4AAD54", paddingVertical: 6, height: 58 },
+        tabBarStyle: { backgroundColor: "#4AAD54", paddingVertical: 6, paddingBottom: 12, height: 70 },
       }}
     >
       <Tabs.Screen
@@ -18,18 +17,18 @@ export default function TabLayout() {
           title: "Home",
           header: () => null,
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
+            <Feather size={28} name="home" color={color} />
           ),
         }}
       />
 
       <Tabs.Screen
-        name="map"
+        name="map"  
         options={{
           title: "Mapa",
           header: () => null,
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="map-pin" color={color} />
+            <Feather size={28} name="map-pin" color={color} />
           ),
         }}
       />
@@ -40,7 +39,7 @@ export default function TabLayout() {
           title: "Perfil",
           header: () => null,
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="user" color={color} />
+            <Feather size={28} name="user" color={color} />
           ),
         }}
       />

@@ -1,6 +1,6 @@
+import { SvgXml } from "react-native-svg";
 import { useNavigation } from "expo-router";
 import { Pressable, Text, View } from "react-native";
-import { SvgXml } from "react-native-svg";
 
 const localizationIcon = `<svg width="27" height="32" viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3967 10.8125C11.8688 10.8125 10.6259 12.0881 10.6259 13.6579C10.6259 15.226 11.8688 16.5 13.3967 16.5C14.9246 16.5 16.1675 15.226 16.1675 13.6579C16.1675 12.0881 14.9246 10.8125 13.3967 10.8125M13.3967 18.9375C10.5594 18.9375 8.25085 16.5699 8.25085 13.6579C8.25085 10.7442 10.5594 8.375 13.3967 8.375C16.234 8.375 18.5425 10.7442 18.5425 13.6579C18.5425 16.5699 16.234 18.9375 13.3967 18.9375" fill="#272D2F"/>

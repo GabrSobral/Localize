@@ -9,7 +9,7 @@ const data = [
 ];
 
 const renderItem = ({ item }: ListRenderItemInfo<{ title: string }>) => (
-  <Pressable android_ripple={{ color: "#FFF" }} className="bg-primary rounded-md mx-2 px-4 py-3">
+  <Pressable android_ripple={{ color: "#FFFFFF88" }} className="bg-primary rounded-md mx-2 px-4 py-3">
     <Text className="text-[#FFF]">{item.title}</Text>
   </Pressable>
 );

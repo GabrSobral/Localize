@@ -74,7 +74,7 @@ export function AppBanner() {
 
         <Link href={"/login/sign-in"} asChild>
           <Pressable
-            android_ripple={{ color: "#4AAD54" }}
+            android_ripple={{ color: "#4AAD5477" }}
             className="bg-[#FFF] rounded-md p-2 w-[84px] items-center"
           >
             <Text className="text-primary font-bold text-base">Login</Text>

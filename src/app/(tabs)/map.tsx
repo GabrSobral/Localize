@@ -1,8 +1,10 @@
 import * as Location from "expo-location";
 import { useEffect, useState } from "react";
-import MapView, { Marker } from "react-native-maps";
 import { SafeAreaView, View,  } from "react-native";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+
 import { Header } from "../../modules/@map/components/Header";
+import { MapItem } from "../../modules/@map/components/MapItem";
 
 
 export default function Tab() {
@@ -37,6 +39,7 @@ export default function Tab() {
       
       <MapView
         className="w-full h-full flex-1 mt-2"
+        provider={PROVIDER_GOOGLE}
         initialRegion={{
           latitude: location ? location.coords.latitude : 37.78825,
           longitude: location ? location.coords.longitude : -122.4324,
@@ -50,16 +53,18 @@ export default function Tab() {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-      >
-        {location && (
-          <Marker
-            coordinate={{
-              latitude: location.coords.latitude,
-              longitude: location.coords.longitude,
-            }}
-            title="Você está aqui"
-          />
-        )}
+      > 
+
+        {location &&
+        <MapItem 
+          latitude={location.coords.latitude}
+          longitude={location.coords.longitude}
+          placeName="Sabor Supremo"
+          placeId="Sabor Supremo"
+          rating={4.8}
+          reviews={8523}
+        />
+        }
         </MapView>
     </SafeAreaView>
   );
