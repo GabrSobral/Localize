@@ -9,6 +9,7 @@ interface Props {
   placeName: string;
   rating: number;
   reviews: number;
+  photoUrl: string | null;
 }
 
 const markerIcon = `<svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,6 +23,8 @@ export function MapItem({
   placeName,
   rating,
   reviews,
+  photoUrl,
+  placeId
 }: Props) {
   const navigation = useNavigation();
 
@@ -35,16 +38,21 @@ export function MapItem({
       calloutAnchor={{ x: 0.5, y: -0.05 }}
       coordinate={{ latitude, longitude }}
     >
-      <Callout tooltip onPress={() => navigation.navigate("restaurant", { id: 2})}>
+      <Callout
+        tooltip
+        onPress={() => navigation.navigate("restaurant/[id]", { id: placeId })}
+      >
         <View
           className="rounded-lg shadow-xl bg-[#FFF] border overflow-hidden border-[#ddd]"
           style={{ height: 210, width: 220, elevation: 3 }}
         >
           <View className="w-full h-[100px] bg-[#EEE]">
-            <Image
-              source={require("../../../assets/example.png")}
-              style={{ width: 220, height: 100 }}
-            />
+            {photoUrl && (
+              <Image
+                source={{ uri: photoUrl }}
+                style={{ width: 220, height: 100 }}
+              />
+            )}
           </View>
 
           <View className="p-2 px-3 rounded-lg bg-[#FFF]">
@@ -61,8 +69,10 @@ export function MapItem({
               </Text>
             </View>
           </View>
-            
-          <Text className="text-base mx-auto text-primary font-semibold">Clique para ver mais</Text>
+
+          <Text className="text-base mx-auto text-primary font-semibold">
+            Clique para ver mais
+          </Text>
         </View>
       </Callout>
     </Marker>

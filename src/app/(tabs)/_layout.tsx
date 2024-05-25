@@ -8,7 +8,12 @@ export default function TabLayout() {
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "white",
         tabBarActiveBackgroundColor: "",
-        tabBarStyle: { backgroundColor: "#4AAD54", paddingVertical: 6, paddingBottom: 12, height: 70 },
+        tabBarStyle: {
+          backgroundColor: "#4AAD54",
+          paddingVertical: 6,
+          paddingBottom: 12,
+          height: 70,
+        },
       }}
     >
       <Tabs.Screen
@@ -23,7 +28,7 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="map"  
+        name="map"
         options={{
           title: "Mapa",
           header: () => null,

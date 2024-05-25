@@ -1,11 +1,10 @@
 import { SvgXml } from "react-native-svg";
-import { Pressable, Text, View } from "react-native";
-
-import { font } from "../../../fonts";
-import { Link } from "expo-router";
+import { Image, Text, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import { useAuth } from "../../../contexts/auth/hook";
+import { useRestaurant } from "../../../contexts/restaurants/hook";
 
-const bannerFoods = `<svg width="103" height="103" viewBox="0 0 103 103" fill="none" xmlns="http://www.w3.org/2000/svg">
+const bannerFoods = `<svg width="116" height="116" viewBox="0 0 103 103" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path
     d="M91.5875 63.9959C92.4414 63.1591 93.5909 62.6931 94.7864 62.6992C95.9818 62.7052 97.1266 63.1828 97.9719 64.0281C98.8173 64.8734 99.2949 66.0182 99.3009 67.2137C99.3069 68.4091 98.8409 69.5587 98.0042 70.4125L70.4125 98.0042C69.5587 98.8409 68.4091 99.3069 67.2137 99.3009C66.0182 99.2948 64.8734 98.8173 64.0281 97.9719C63.1828 97.1266 62.7052 95.9818 62.6992 94.7864C62.6931 93.5909 63.1591 92.4413 63.9959 91.5875L91.5875 63.9959Z"
     stroke="#F6F6F6" stroke-width="2.5125" stroke-miterlimit="10" />
@@ -58,33 +57,41 @@ const bannerFoods = `<svg width="103" height="103" viewBox="0 0 103 103" fill="n
 </svg>
 `;
 
-export function AppBanner() {
+export function ProfileBanner() {
   const { session } = useAuth();
+  const { comments } = useRestaurant();
+
+  const myComments = comments
+    .map((comment) => comment.comments)
+    .flat()
+    .filter((comment) => comment.userId === session?.user.id);
 
   return (
-    <View className="w-full rounded-lg bg-primary p-4 flex-row mt-4 justify-between ">
-      <View className="flex-1">
-        <Text
-          style={font.montserratSemibold}
-          className="text-[#FFF] text-lg font-semibold"
-        >
-          Olá{session ? `, ${session.user.name}` : `, tudo bem?`}
-        </Text>
+    <View className="w-full h-[300px] bg-primary relative items-center justify-around flex-row">
+      <LinearGradient
+        colors={["#00000000", "#00000fff"]} // Gradient from transparent to semi-transparent black
+        start={{ x: 0, y: 1 }} // Bottom
+        end={{ x: 0, y: 0 }} // Top
+        className="absolute top-0 left-0 w-full h-[70px]"
+      ></LinearGradient>
 
-        <Text className="text-[#FFF] text-base my-2">
-          {session ? `Busque por estabelecimentos${"\n"}para visitar hoje.` : `Realize o login para avaliar os restaurantes`}
-        </Text>
+      <View className="">
+        <View className="rounded-full w-[128px] h-[128px] bg-primary border mb-3">
+          {session?.user.img && (
+            <Image
+              width={128}
+              height={128}
+              className="rounded-full w-[128px] h-[128px]"
+              source={{ uri: session?.user.img }}
+            />
+          )}
+        </View>
 
-        {!session && (
-          <Link href={"/login/sign-in"} asChild>
-            <Pressable
-              android_ripple={{ color: "#4AAD5477" }}
-              className="bg-[#FFF] rounded-md p-2 w-[84px] items-center"
-            >
-              <Text className="text-primary font-bold text-base">Login</Text>
-            </Pressable>
-          </Link>
-        )}
+        <Text className="text-[#FFF] text-lg font-semibold">
+          Olá, {session?.user.name || "-"}
+        </Text>
+        <Text className="text-[#FFF] text-base">Santos</Text>
+        <Text className="text-[#FFF] text-base">{myComments.length} Avaliações publicadas</Text>
       </View>
 
       <View className="items-center justify-center">
