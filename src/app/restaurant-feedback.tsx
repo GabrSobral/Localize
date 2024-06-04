@@ -1,10 +1,10 @@
 import { SvgXml } from "react-native-svg";
+import { StatusBar } from "expo-status-bar";
 import { useEffect, useLayoutEffect, useState } from "react";
+import { useLocalSearchParams, useNavigation } from "expo-router";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 
 import { Banner } from "../modules/@restaurant/components/Banner";
-import { StatusBar } from "expo-status-bar";
-import { useLocalSearchParams, useNavigation } from "expo-router";
 import { IRestaurant } from "../contexts/restaurants/context";
 import { useRestaurant } from "../contexts/restaurants/hook";
 
@@ -58,7 +58,7 @@ export default function RestaurantFeedback() {
       <Banner url={restaurant.imageUrl} />
 
       <View className="p-4 -top-4 rounded-t-xl bg-[#FFF]">
-        <Text className="text-[32px] font-bold">Sabor Supremo</Text>
+        <Text className="text-[32px] font-bold">{restaurant.name}</Text>
 
         <View className="w-full h-[1px] bg-[#eee] my-3" />
 

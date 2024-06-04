@@ -116,6 +116,7 @@ export default function SignUpScreen() {
                 value={password}
                 placeholder="Insira sua senha"
                 className="px-4 h-14 text-base rounded-md bg-[#FFF]"
+                secureTextEntry
               />
             </View>
 
