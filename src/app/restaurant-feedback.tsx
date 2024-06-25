@@ -19,7 +19,7 @@ const starUnmarked = `<svg width="35" height="33" viewBox="0 0 35 33" fill="none
 `;
 
 export default function RestaurantFeedback() {
-  const [star, setStar] = useState(5);
+  const [star, setStar] = useState(1);
   const [arrayStar, setArrayStar] = useState(generateBooleanArray(star));
   const [restaurant, setRestaurant] = useState<IRestaurant | null>(null);
   const [content, setContent] = useState("");
