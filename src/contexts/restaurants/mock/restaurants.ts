@@ -63,13 +63,13 @@ export const restaurantsMock: IRestaurant[] = [
     },
     {
       id: 6,
-      name: "Jardim Verde",
+      name: "Jardim Verde Italiano",
       maxReviewsCount: 3823,
       categories: [{ id: "1", label: "Italiana" }],
       description:
-        "Um restaurante vegano e vegetariano com foco em ingredientes frescos e orgânicos. O Jardim Verde é um refúgio para os amantes de uma alimentação saudável. O cardápio é elaborado com produtos orgânicos e frescos, oferecendo uma variedade de pratos deliciosos e nutritivos à base de plantas.",
+        "Um restaurante italiano vegano e vegetariano com foco em ingredientes frescos e orgânicos. O Jardim Verde é um refúgio para os amantes de uma alimentação saudável. O cardápio é elaborado com produtos orgânicos e frescos, oferecendo uma variedade de pratos deliciosos e nutritivos à base de plantas.",
       imageUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-      rating: 2.9,
+      rating: 4.9,
       location: {
         latitude: -23.9650,
         longitude: -46.3266,
