@@ -87,19 +87,19 @@ export function FilterModal({
         selectedTypesOfCuisine.some(
           (typeOfCuisine) => category.id === typeOfCuisine
         )
-      )
+      ) && restaurant.rating >= selectedStar
     );
 
     setFilteredRestaurants(newState);
-  }, [selectedTypesOfCuisine, allRestaurants]);
+  }, [selectedTypesOfCuisine, allRestaurants, selectedStar]);
 
-  useEffect(() => {
-    const newState = allRestaurants.filter(
-      (restaurant) => restaurant.rating >= selectedStar
-    );
+  // useEffect(() => {
+  //   const newState = allRestaurants.filter(
+  //     (restaurant) => restaurant.rating >= selectedStar
+  //   );
 
-    setFilteredRestaurants(newState);
-  }, [selectedStar, allRestaurants]);
+  //   setFilteredRestaurants(newState);
+  // }, [selectedStar, allRestaurants]);
 
   return (
     <Modal animationType="slide" transparent={true} visible={isVisible}>
