@@ -1,13 +1,13 @@
 export const font = {
     montserratRegular: {
-        fontFamily: "Montserrat-Regular"
+        fontFamily: "Arial"
     },
 
     montserratSemibold: {
-        fontFamily: "Montserrat-Semibold"
+        fontFamily: "Arial"
     },
 
     montserratBold: {
-        fontFamily: "Montserrat-Bold"
+        fontFamily: "Arial"
     }
 }

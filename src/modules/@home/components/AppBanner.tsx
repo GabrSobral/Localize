@@ -1,7 +1,7 @@
 import { SvgXml } from "react-native-svg";
 import { Pressable, Text, View } from "react-native";
 
-import { font } from "../../../fonts";
+// import { font } from "../../../fonts";
 import { Link } from "expo-router";
 import { useAuth } from "../../../contexts/auth/hook";
 
@@ -65,7 +65,7 @@ export function AppBanner() {
     <View className="w-full rounded-lg bg-primary p-4 flex-row mt-4 justify-between ">
       <View className="flex-1">
         <Text
-          style={font.montserratSemibold}
+          // style={font.montserratSemibold}
           className="text-[#FFF] text-lg font-semibold"
         >
           Olá{session ? `, ${session.user.name}` : `, tudo bem?`}
